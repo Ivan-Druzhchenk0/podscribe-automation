@@ -59,25 +59,25 @@ test('basic test', async ({ page }) => {
 Run all tests:
 
 ```
-npx playwright test
+yarn test
 ```
 
 Run a specific test file:
 
 ```
-npx playwright test tests/example.spec.ts
+yarn test tests/example.spec.ts
 ```
 
 Run tests in UI mode:
 
 ```
-npx playwright test --ui
+yarn test:ui
 ```
 
 Run tests in a specific browser:
 
 ```
-npx playwright test --project=chromium
+yarn test --project=chromium
 ```
 
 ### Configuration
@@ -126,5 +126,5 @@ For debugging tests:
 - Use trace viewer to visualize test execution
 
 ```
-npx playwright test --debug
+yarn test:debug
 ```
