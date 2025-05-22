@@ -11,21 +11,22 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
  * @see https://playwright.dev/docs/test-configuration
  */
 const config = {
-  expect: { timeout: 10000 },
-  timeout: 30000,
+  expect: { timeout: 10 * 100 },
+  timeout: 45 * 1000,
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 1,
   // Opt out of parallel tests on CI.
-  workers: process.env.CI ? 1 : 4,
+  workers: process.env.CI ? 1 : '50%',
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['list'], ['html']],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://app.podscribe.com/',
+    testIdAttribute: 'data-test-id',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
